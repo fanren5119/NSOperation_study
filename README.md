@@ -3,9 +3,9 @@ NSOperation是OC中多线程技术的一种,是对GCD的OC包装.它包含NSOper
 ## 二、NSOperation使用 
 NSOperation本身是一个抽象类，它的使用可以通过以下几种方式   
 ### 1.NSInvocationOpeartion
-NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(respondsToOperation) object:nil];
+        NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(respondsToOperation) object:nil];
         [operation start];  
-此任务在执行的时候，系统不会开辟一个新的线程去执行，任务会在当前线程同步执行
+        此任务在执行的时候，系统不会开辟一个新的线程去执行，任务会在当前线程同步执行
 ### 2.NSBlockOperation
     NSBlockOperation *blockOp = [NSBlockOperation blockOperationWithBlock:^{
         NSLog(@"blockOp0 == %@", [NSThread currentThread]);
@@ -20,7 +20,7 @@ NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget
 * 创建对象，调用start方法，让你自定义的任务跑在当前线程中。  
 
 ## 三、NSOperationQueue的使用
-NSOperation的start方法默认是同步执行任务，这样的使用并不多见，只有将NSOperation与NSOperationQueue进行结合，才会发挥这种多线程的最大功效。当NSoperation被添加到NSOperationQueue中后，就会全自动地执行异步操作。
+        NSOperation的start方法默认是同步执行任务，这样的使用并不多见，只有将NSOperation与NSOperationQueue进行结合，才会发挥这种多线程的最大功效。当NSoperation被添加到NSOperationQueue中后，就会全自动地执行异步操作。
 ### 1.NSOperationQueue的种类
 * 自带主队列[NSOperationQueue mainQueue]:添加到主队列中的任务都会在主线程中执行
 * 自己创建队列（非主队列）[[NSOperationQueue alloc] init]:这种队列同时包含串行、并发的功能，添加到非主队列的任务会自动放到子线程中执行；
