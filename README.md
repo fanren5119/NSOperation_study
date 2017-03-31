@@ -1,11 +1,11 @@
 ## 一、NSOperation简介  
-NSOperation是OC中多线程技术的一种,是对GCD的OC包装.它包含NSOperationQueue（队列）和NSOperation（操作）两方面；
+    NSOperation是OC中多线程技术的一种,是对GCD的OC包装.它包含NSOperationQueue（队列）和NSOperation（操作）两方面；
 ## 二、NSOperation使用 
-NSOperation本身是一个抽象类，它的使用可以通过以下几种方式   
-### 1.NSInvocationOpeartion
-        NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(respondsToOperation) object:nil];
-        [operation start];  
-        此任务在执行的时候，系统不会开辟一个新的线程去执行，任务会在当前线程同步执行
+    NSOperation本身是一个抽象类，它的使用可以通过以下几种方式   
+### 1.NSInvocationOpeartion 
+    NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(respondsToOperation) object:nil];
+    [operation start];  
+    此任务在执行的时候，系统不会开辟一个新的线程去执行，任务会在当前线程同步执行
 ### 2.NSBlockOperation
     NSBlockOperation *blockOp = [NSBlockOperation blockOperationWithBlock:^{
         NSLog(@"blockOp0 == %@", [NSThread currentThread]);
